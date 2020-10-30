@@ -36,23 +36,23 @@ public class CommentMethods {
 
         String targetId = params.getTargetId();
         String description = params.getDescription();
-        //*****************************************************
+
         ValidateUtil.isEmpty(targetId, "评论目标id不能为空");
         ValidateUtil.isEmpty(description, "评论详情不能为空");
-        //*******************************************************
+
         Comment comment = commentService.createComment(targetId,description);
         return CommentView.valueOf(comment);
     }
 
     @WeforwardMethod
     @DocMethod(description = "根据目标id查询所有评论", index = 1)
-    @DocParameter(@DocAttribute(name = "id", type = String.class, necessary = true, description = "目标id"))
+    @DocParameter(@DocAttribute(name = "targetId", type = String.class, necessary = true, description = "目标id"))
     public TransResultPage<CommentView, Comment> getAllCommentsByTargetId(FriendlyObject params) throws ApiException {
 
-        String targetId = params.getString("id");
-        //*****************************************************
+        String targetId = params.getString("targetId");
+
         ValidateUtil.isEmpty(targetId, "目标id不能为空");
-        //*******************************************************
+
         ResultPage<Comment> rp =commentService.getAllCommentsByTargetId(targetId);
 
         return new TransResultPage<CommentView, Comment>(rp) {

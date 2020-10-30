@@ -4,6 +4,9 @@ import cn.weforward.protocol.doc.annotation.DocAttribute;
 import cn.weforward.protocol.doc.annotation.DocObject;
 import weforward.Comment;
 
+import java.awt.image.DataBufferShort;
+import java.util.Date;
+
 /**
  * @Author 1
  * @create 2020/10/23 15:34
@@ -30,6 +33,11 @@ public class CommentView {
     @DocAttribute(description = "评论创建人")
     public String getCreator() {
         return comment.getCreator();
+    }
+
+    @DocAttribute(description = "评论创建时间")
+    public Date getCreateTime() {
+        return comment.getCreateTime();
     }
 
     @DocAttribute(description = "评论详情")

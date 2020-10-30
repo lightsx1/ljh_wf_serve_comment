@@ -45,23 +45,22 @@ public class CommentImpl extends  AbstractPersistent <CommentDi> implements Comm
         return getPersistenceId();
     }
 
+    @Override
     public String getTargetId() {
         return targetId;
     }
 
+    @Override
     public String getCreator() {
         return creator;
     }
 
-
+    @Override
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
+    @Override
     public Date getCreateTime() {
         return createTime;
     }
